@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import resources.LoadProperties;
 
 public class MenuButtonHandler implements ActionListener{
-	private JTextField textField, CallUUIDField, ConnIDField, GvpSessionIDField;
+	private JTextField textField, CallUUIDField, ConnIDField;
 	private JFrame frame;
 	private JLabel showDate;
 	private String directory;
@@ -21,10 +21,9 @@ public class MenuButtonHandler implements ActionListener{
 	private Properties props;
 	
 	public MenuButtonHandler(JFrame frame, JLabel showDate, JTextField textField, JTextField CallUUIDField,
-			JTextField ConnIDField, JTextField GvpSessionIDField) {
+			JTextField ConnIDField) {
 		this.CallUUIDField = CallUUIDField;
 		this.ConnIDField = ConnIDField;
-		this.GvpSessionIDField = GvpSessionIDField;
 		this.textField = textField;
 		this.frame = frame;
 		this.showDate = showDate;
@@ -35,7 +34,6 @@ public class MenuButtonHandler implements ActionListener{
 		item = event.getActionCommand();
 		CallUUIDField.setEditable(true);
 		ConnIDField.setEditable(true);
-		GvpSessionIDField.setEditable(true);
 		textField.setEditable(true);
 		if(item.equals("esb")) {
 			frame.setTitle("Ivr log.txt query program( ivr-gateway / esb )");

@@ -29,16 +29,14 @@ public class QueryButtonHandler implements ActionListener{
 	private JFrame frame;
 	private JTextField CallUUIDField;
 	private JTextField ConnIDField;
-	private JTextField GvpSessionIDField;
 	
 	public QueryButtonHandler(CheckButtonHandler checkHandler, JTextArea textArea, JFrame frame, 
-			JTextField CallUUIDField, JTextField ConnIDField, JTextField GvpSessionIDField) {
+			JTextField CallUUIDField, JTextField ConnIDField) {
 		this.checkHandler = checkHandler;
 		this.textArea = textArea;
 		this.frame = frame;
 		this.CallUUIDField = CallUUIDField;
 		this.ConnIDField = ConnIDField;
-		this.GvpSessionIDField = GvpSessionIDField;
 	}
 	
 	@Override
@@ -115,17 +113,14 @@ public class QueryButtonHandler implements ActionListener{
 //			直接拿callUUIDField.getText()空字串去搜尋會搜尋不到?
 			String callUUID="";
 			String connID="";
-			String gvpSessionID="";
 			if(!CallUUIDField.getText().equals(""))
 				callUUID = CallUUIDField.getText();
 			if(!ConnIDField.getText().equals(""))
 				connID = ConnIDField.getText();
-			if(!GvpSessionIDField.getText().equals(""))
-				gvpSessionID = GvpSessionIDField.getText();
 			
 			for(Map<String, String> map:list) {
 				try {
-					builder.append(search.getData(map, callUUID, connID, gvpSessionID));
+					builder.append(search.getData(map, callUUID, connID));
 				}
 				catch(Exception e) {
 					e.printStackTrace();

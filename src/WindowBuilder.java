@@ -28,7 +28,6 @@ public class WindowBuilder {
 	private JFrame frame;
 	private JTextField CallUUIDField;
 	private JTextField ConnIDField;
-	private JTextField GvpSessionIDField;
 	private JTextArea textArea;
 	private JTextField textField;
 	private JLabel showDate;
@@ -80,36 +79,25 @@ public class WindowBuilder {
 		textField.setEditable(false);
 
 		CallUUIDField = new JTextField();
-		CallUUIDField.setBounds(96, 60, 906, 21);
+		CallUUIDField.setBounds(96, 80, 906, 21);
 		frame.getContentPane().add(CallUUIDField);
 		CallUUIDField.setColumns(32);
 		CallUUIDField.setEditable(false);
 
 		ConnIDField = new JTextField();
-		ConnIDField.setBounds(96, 93, 906, 21);
+		ConnIDField.setBounds(96, 120, 906, 21);
 		frame.getContentPane().add(ConnIDField);
 		ConnIDField.setColumns(16);
 		ConnIDField.setEditable(false);
 
-		GvpSessionIDField = new JTextField();
-		GvpSessionIDField.setBounds(96, 128, 906, 21);
-		frame.getContentPane().add(GvpSessionIDField);
-		GvpSessionIDField.setColumns(36);
-		GvpSessionIDField.setEditable(false);
-
-		JLabel GvpSessionIDLabel = new JLabel("GvpSessionID");
-		GvpSessionIDLabel.setFont(new Font("Source Sans Pro Semibold", Font.PLAIN, 14));
-		GvpSessionIDLabel.setBounds(5, 134, 85, 15);
-		frame.getContentPane().add(GvpSessionIDLabel);
-
 		JLabel connIDLabel = new JLabel("connID");
 		connIDLabel.setFont(new Font("Source Sans Pro Semibold", Font.PLAIN, 14));
-		connIDLabel.setBounds(5, 99, 47, 15);
+		connIDLabel.setBounds(5, 123, 47, 15);
 		frame.getContentPane().add(connIDLabel);
 
 		JLabel callUUIDLabel = new JLabel("callUUID");
 		callUUIDLabel.setFont(new Font("Source Sans Pro Semibold", Font.PLAIN, 14));
-		callUUIDLabel.setBounds(5, 62, 64, 15);
+		callUUIDLabel.setBounds(5, 83, 64, 15);
 		frame.getContentPane().add(callUUIDLabel);
 
 		JButton QueryButton = new JButton("Query");
@@ -208,10 +196,10 @@ public class WindowBuilder {
 		});
 //		===========================================
 		MenuButtonHandler menuHandler = new MenuButtonHandler(frame, showDate, textField, CallUUIDField,
-				ConnIDField, GvpSessionIDField);
+				ConnIDField);
 		CheckButtonHandler checkHandler = new CheckButtonHandler(menuHandler, textField, showDate);
 		QueryButtonHandler queryHandler = new QueryButtonHandler(checkHandler, textArea, frame,
-				CallUUIDField, ConnIDField, GvpSessionIDField);
+				CallUUIDField, ConnIDField);
 		SaveButtonHandler saveHandler = new SaveButtonHandler(frame, textArea);
 		EditButtonHandler editHandler = new EditButtonHandler(textField, showDate);
 		JTextFieldHintHandler hintHandler = new JTextFieldHintHandler("YYYY/MM/DD", textField);

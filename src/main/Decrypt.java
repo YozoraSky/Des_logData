@@ -46,7 +46,7 @@ public class Decrypt {
 		return data;
 	}
 	
-	public static String db_or_line_or_socket_or_authBackup(Map<String, String> map) {
+	public static String general(Map<String, String> map) {
 		String data = "";
 		try {
 			if(map.containsKey("EInput") && !map.containsKey("EOutput")) {

@@ -19,7 +19,6 @@ public class PutInMap {
 		String dataLength;
 		String callUU;
 		String conn;
-		String getGvpSession;
 		while(context.indexOf(SeparatorSymbol, from)!=-1) {
 			to = context.indexOf(SeparatorSymbol, from) + 10;
 			Map<String,String> map = new HashMap<String,String>();
@@ -34,12 +33,10 @@ public class PutInMap {
 				encryptData = data.substring(data.indexOf("========= : ")+12, data.indexOf("========= : ")+12+Integer.parseInt(dataLength));
 				callUU = data.substring(data.indexOf("CallUUID")+11,data.indexOf("#", data.indexOf("CallUUID")));
 				conn = data.substring(data.indexOf("ConnID")+9,data.indexOf("#", data.indexOf("ConnID")));
-				getGvpSession = data.substring(data.indexOf("GvpSessionID")+15,data.indexOf("#", data.indexOf("GvpSessionID")));
 				map.put("Data", data);
 				map.put("EData", encryptData);
 				map.put("CallUUID", callUU);
 				map.put("ConnID", conn);
-				map.put("GvpSessionID", getGvpSession);
 				list.add(map);
 			}
 			from = to;
@@ -54,7 +51,6 @@ public class PutInMap {
 		String data;
 		String callUU;
 		String conn;
-		String getGvpSession;
 		while(context.indexOf(SeparatorSymbol, from)!=-1) {
 			to = context.indexOf(SeparatorSymbol, from) + 10;
 			Map<String,String> map = new HashMap<String,String>();
@@ -69,11 +65,9 @@ public class PutInMap {
 			else {
 				callUU = data.substring(data.indexOf("CallUUID")+11,data.indexOf("#", data.indexOf("CallUUID")));
 				conn = data.substring(data.indexOf("ConnID")+9,data.indexOf("#", data.indexOf("ConnID")));
-				getGvpSession = data.substring(data.indexOf("GvpSessionID")+15,data.indexOf("#", data.indexOf("GvpSessionID")));
 				map.put("Data", data);
 				map.put("CallUUID", callUU);
 				map.put("ConnID", conn);
-				map.put("GvpSessionID", getGvpSession);
 				if(data.indexOf("input : ")!=-1) {
 					String encryptInput = data.substring(data.indexOf("input : ")+8, data.indexOf("#",data.indexOf("input : ")));
 					map.put("EInput", encryptInput);
@@ -97,7 +91,6 @@ public class PutInMap {
 		String encryptInput;
 		String callUU;
 		String conn;
-		String getGvpSession;
 		while(context.indexOf(SeparatorSymbol, from)!=-1) {
 			to = context.indexOf(SeparatorSymbol, from) + 10;
 			Map<String,String> map = new HashMap<String,String>();
@@ -112,13 +105,11 @@ public class PutInMap {
 			else {
 				callUU = data.substring(data.indexOf("CallUUID")+11,data.indexOf("#", data.indexOf("CallUUID")));
 				conn = data.substring(data.indexOf("ConnID")+9,data.indexOf("#", data.indexOf("ConnID")));
-				getGvpSession = data.substring(data.indexOf("GvpSessionID")+15,data.indexOf("#", data.indexOf("GvpSessionID")));
 				encryptInput = data.substring(data.indexOf("input : ")+8, data.indexOf("#",data.indexOf("input : ")));
 				map.put("Data", data);
 				map.put("EInput", encryptInput);
 				map.put("CallUUID", callUU);
 				map.put("ConnID", conn);
-				map.put("GvpSessionID", getGvpSession);
 				list.add(map);
 			}
 			from = to;
@@ -135,7 +126,6 @@ public class PutInMap {
 		String encryptMsg;
 		String callUU;
 		String conn;
-		String getGvpSession;
 		while(context.indexOf(SeparatorSymbol, from)!=-1) {
 			to = context.indexOf(SeparatorSymbol, from) + 10;
 			Map<String,String> map = new HashMap<String,String>();
@@ -152,13 +142,11 @@ public class PutInMap {
 				encryptMsg = data.substring(data.indexOf("msg_Enc")+10, data.indexOf("#",data.indexOf("msg_Enc")));
 				callUU = data.substring(data.indexOf("CallUUID")+11,data.indexOf("#", data.indexOf("CallUUID")));
 				conn = data.substring(data.indexOf("ConnID")+9,data.indexOf("#", data.indexOf("ConnID")));
-				getGvpSession = data.substring(data.indexOf("GvpSessionID")+15,data.indexOf("#", data.indexOf("GvpSessionID")));
 				map.put("Data", data);
 				map.put("EInput", encryptInput);
 				map.put("Emsg", encryptMsg);
 				map.put("CallUUID", callUU);
 				map.put("ConnID", conn);
-				map.put("GvpSessionID", getGvpSession);
 				list.add(map);
 			}
 			from = to;
@@ -170,11 +158,9 @@ public class PutInMap {
 		Map<String,String> map = new HashMap<String,String>();
 		String callUU = data.substring(data.indexOf("CallUUID")+11,data.indexOf("#", data.indexOf("CallUUID")));
 		String conn = data.substring(data.indexOf("ConnID")+9,data.indexOf("#", data.indexOf("ConnID")));
-		String getGvpSession = data.substring(data.indexOf("GvpSessionID")+15,data.indexOf("#", data.indexOf("GvpSessionID")));
 		map.put("ERROR", data);
 		map.put("CallUUID", callUU);
 		map.put("ConnID", conn);
-		map.put("GvpSessionID", getGvpSession);
 		return map;
 	}
 }
